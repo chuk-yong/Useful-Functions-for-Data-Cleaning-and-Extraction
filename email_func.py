@@ -13,3 +13,18 @@ def extract(text, flatten = False):
     if flatten == True:
         match = [item for sublist in match for item in sublist]
     return match
+
+def validate(email, pattern = 'simple'):
+    ''' validate emails \n
+    returns True or False \n
+    if pattern = 'html5', uses W3C Html5 standard
+    '''
+    
+    if pattern == 'html5':
+        pattern = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+    else:    
+        pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+
+    if re.match(pattern, email):
+        return True
+    return False
