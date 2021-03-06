@@ -13,14 +13,3 @@ def extract(text, flatten = False):
     if flatten == True:
         match = [item for sublist in match for item in sublist]
     return match
-
-
-text1 = " we are location at abc@gmail.com or at ttsh@hotmail.com"
-text2 = " you can contact us at 12348@goog.io"
-text3 = []
-text3.append(text1)
-text3.append(text2)
-
-emails = extract(text3)
-print(emails)
-print(extract(text3, flatten=True))
